@@ -1,0 +1,79 @@
+players_file = open("players.txt", "w")
+from logging import exception
+
+
+
+Dragon_Ring = input("what class will you play? ")
+
+points = None
+try:
+
+  (2 / -2)
+
+except:
+  print("Error detected skipping")
+
+
+points_map = {
+    "rogue": 5,
+    "assassin": 10,
+    "barbarian": 15,
+    "mage": 20
+}
+if Dragon_Ring in points_map:
+  points = points_map[Dragon_Ring]
+  log = f"The {Dragon_Ring} has {points} points \n"
+  players_file.write(log)
+  print(f"your class score for {Dragon_Ring} is {points}")
+
+
+cave = input("Do you want to enter this cave? enter/go around: ")
+if cave == "enter":
+  points -= 2
+  players_file.write(f"After ambush, {Dragon_Ring} has {points} points.\n")
+  print(f"you fell for an ambush!!! you lose 2 points {points}")
+  retreat = input("should we retreat or fight? ")
+  if retreat == "retreat":
+    players_file.write(f"After retreat {Dragon_Ring} has {points} point. \n")
+    potion = input(f"you found a potion as you exit the cave  do you want to drink it?: yes/no ")
+    if potion == "yes":
+      points += 2
+      players_file.write(f"if {Dragon_Ring} said yes {points}. \n")
+    if potion == "no":
+      points == 0
+      players_file.write(f"if {Dragon_Ring} said no {points}. \n")
+      (2 / -2)
+    print(f"you are safe for now. your points are {points}, you flee the area to the town near by and rent a room at the local tavern")
+  if retreat == "fight":
+    points = 0
+    players_file.write(f"if {Dragon_Ring} said fight {points}. \n")
+    print(f"You fought bravely but in the end you died with honor")
+elif cave == "go around":
+  print("You found loot!")
+  players_file.write(f"if {Dragon_Ring} is safe and found loot points are {points}. \n")
+  journey = input("should we keep going? yes/no ")
+  if journey ==  "yes":
+    print("lets head to the next town to sell our loot")
+  if journey == "no":
+    points = 0
+    print(f"You decide to setup camp on the back side of the cave. in the middle of the night you were slain in your sleep and lost everything. RIP")
+    players_file.write(f"if {Dragon_Ring} said no they are dead {points}. \n")
+    print(points)
+else:
+  print("please make a choice")
+
+
+
+
+if points == 0:
+  print("Game over! Thanks for playing")
+  players_file.write(f"game over {Dragon_Ring} is dead {points} \n")
+
+elif points > 1:
+  print(f"You have survived the game with {points} points left nd continue your adventure!")
+
+  log = f"The {Dragon_Ring} has {points} points \n"
+  players_file.write(log)
+
+
+  players_file.close()
